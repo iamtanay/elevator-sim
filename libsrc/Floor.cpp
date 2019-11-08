@@ -1,5 +1,4 @@
 #include "Floor.hpp"
-#include <iostream>
 
 namespace Elevator {
 
