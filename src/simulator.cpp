@@ -1,8 +1,8 @@
-#include <vector>
-
 #include <Elevator/Elevator.hpp>
 #include <Elevator/TripManager.hpp>
 #include <Elevator/Floor.hpp>
+#include <Elevator/Record.hpp>
+#include <Elevator/InputReader.hpp>
 
 
 using namespace Elevator;
@@ -19,6 +19,8 @@ int main() {
         Floor newFloor(i);
         floors.push_back(newFloor);
     }
+
+    InputReader* inputRead = InputReader::getInstance("input/sampleInput.csv");
 
     return 0;
 }

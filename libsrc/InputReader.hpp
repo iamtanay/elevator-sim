@@ -2,7 +2,9 @@
 #define INPUT_READER_HPP
 
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <vector>
 #include "Record.hpp"
 
 
@@ -15,19 +17,25 @@ namespace Elevator {
      *  This class will create a data structure for handling,
      *  and managing the input to the simulation.
      **/
-    class InputRecords {
+    class InputReader {
 
         public:
 
-            InputRecords(std::string inputFileName);
-
-            static std::vector<std::string> getKeysInTemplate();
+            std::vector<std::string> getKeysInTemplate();
+            
+            static InputReader* getInstance(std::string inputFileName="");
 
         private:
 
+            InputReader(std::string inputFileName);
+            
             void readRecordsFromFile();
 
+            static InputReader* mInstance;
+
             std::string mInputFileName;
+
+            std::string mTemplateKeyString;
 
             std::vector<Record> mInputRecords;
 

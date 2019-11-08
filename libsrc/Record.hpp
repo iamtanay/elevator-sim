@@ -5,6 +5,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include "InputReader.hpp"
 
 
 namespace Elevator {
@@ -24,7 +25,9 @@ namespace Elevator {
 
         private:
 
-            std::vector<std::map<std::string,std::string>> ;
+            std::vector<std::map<std::string,std::string>> recordMap;
+
+            friend class InputReader;
 
     };
 }
