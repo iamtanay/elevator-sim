@@ -1,32 +1,30 @@
-# Prerequisites
-*.d
+#Ignore all Types of Files which should not be committed
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
 *.a
-*.lib
 
-# Executables
-*.exe
-*.out
-*.app
+*.so
+
+*.o
+
+*Cache*.txt
+
+*.cmake
+
+*.gz
+
+*.info
+
+#Ignore all folder names which should not be committed
+CMakeFiles
+
+lib/
+
+obj/
+
+bin/
+
+*Makefile*
+
+build/*
+
+core.*
