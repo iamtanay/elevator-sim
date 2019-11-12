@@ -1,3 +1,6 @@
+#ifndef UTILITY_HPP
+#define UTILITY_HPP
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -14,3 +17,4 @@ std::vector<std::string> split(const std::string& inputString, char delimiter)
     }
     return outputVectorOfStrings;
 }
+#endif

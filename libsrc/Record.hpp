@@ -5,11 +5,11 @@
 #include <string>
 #include <map>
 #include <vector>
-#include "InputReader.hpp"
 
 
 namespace Elevator {
 
+    class InputReader;
     /**
      * @brief Class for managing particular record of CSV file.
      *

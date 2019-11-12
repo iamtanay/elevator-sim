@@ -7,8 +7,6 @@ namespace Elevator {
 
         std::cout<<"Record  :"<<recordString<<std::endl;
         std::vector<std::string> recordValues = split(recordString,',');
-        InputReader* inputReaderInstance = InputReader::getInstance();
-        std::vector<std::string> recordKeys = inputReaderInstance->getTemplateKeys();
     }
 
 }

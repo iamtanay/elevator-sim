@@ -10,6 +10,7 @@
 
 namespace Elevator {
 
+    class Record;
     /**
      * @brief Class for reading input file for simulation.
      *
