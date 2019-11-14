@@ -2,7 +2,7 @@
 #define FLOOR_HPP
 
 #include <iostream>
-
+#include "spdlog/spdlog.h"
 
 namespace Elevator {
 

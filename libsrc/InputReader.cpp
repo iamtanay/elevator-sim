@@ -23,12 +23,14 @@ namespace Elevator {
             std::string templateKeys;
             std::getline(inputfile, templateKeys);
             this->mTemplateKeyString = templateKeys;
+            spdlog::info("Template Keys : {}", this->mTemplateKeyString);
             this->mTemplateKeys = split(templateKeys,',');
 
             this->readRecordsFromFile();
             this->inputValidation();
             this->mValidInput = true;
         } else {
+            spdlog::error("Input File Not Found");
             throw "Input File Not Found";
         }
     }
@@ -37,6 +39,7 @@ namespace Elevator {
         std::ifstream inputfile(this->mInputFileName);
         if (inputfile.good()) {
 
+            spdlog::info("Reading records from input file");
             while(!inputfile.eof()) {
 
                 std::string inputRecord;
@@ -48,6 +51,7 @@ namespace Elevator {
             }
 
         } else {
+            spdlog::error("Input File Not Found");
             throw "Input File Not Found";
         }
 
@@ -83,10 +87,12 @@ namespace Elevator {
 
     bool InputReader::inputValidation() {
         //Sorting records on the basis of Time of Call
+        spdlog::info("Sorting the records on the basis of time of call");
         std::sort(this->mInputRecords.begin(), this->mInputRecords.end(), this->compareCallTimes);
         //Checking if Floor Numbers are valid
         if(!checkFloorNumbers()) {
-            std::cerr<<"Floor Number input is not correct"<<std::endl;
+            spdlog::error("Floor Number input is not correct");
+            spdlog::error("Input Validation Failed");
             throw "Input Validation Failed";
         }
         return true;
