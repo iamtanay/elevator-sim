@@ -6,7 +6,7 @@
 #include <iostream>
 #include <sstream>
 
-std::vector<std::string> split(const std::string& inputString, char delimiter)
+inline std::vector<std::string> split(const std::string& inputString, char delimiter)
 {
     std::vector<std::string> outputVectorOfStrings;
     std::string token;

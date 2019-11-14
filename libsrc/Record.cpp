@@ -1,12 +1,15 @@
 #include "Record.hpp"
-#include "utility.hpp"
 
 namespace Elevator {
 
-    Record::Record(std::string recordString) {
+    Record::Record(std::string recordString,std::vector<std::string> templateKeys) {
 
         std::cout<<"Record  :"<<recordString<<std::endl;
         std::vector<std::string> recordValues = split(recordString,',');
+
+        for(int iter = 0; iter < templateKeys.size(); iter++) {
+            this->recordMap.insert({templateKeys[iter],recordValues[iter]});
+        }
     }
 
-}
+} 

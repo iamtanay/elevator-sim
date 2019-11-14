@@ -10,7 +10,7 @@ using namespace Elevator;
 int main() {
 
     int numberOfFloors;
-    std::cout<<"Enter number of floors in the building: "<<std::endl;
+    std::cout<<"Enter number of floors in the building: ";
     std::cin>>numberOfFloors;
 
     std::vector<Floor> floors;
@@ -20,7 +20,7 @@ int main() {
         floors.push_back(newFloor);
     }
 
-    InputReader* inputRead = InputReader::getInstance("input/sampleInput.csv");
-
+    InputReader* inputRead = InputReader::getInstance("input/sampleInput.csv",numberOfFloors);
+    
     return 0;
 }

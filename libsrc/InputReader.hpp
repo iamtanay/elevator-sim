@@ -5,12 +5,12 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "Record.hpp"
 
 
 namespace Elevator {
 
-    class Record;
     /**
      * @brief Class for reading input file for simulation.
      *
@@ -22,19 +22,27 @@ namespace Elevator {
 
         public:
 
-            std::vector<std::string> getKeysInTemplate();
+            std::vector<Record> getInputRecords();
+
+            static bool compareCallTimes(Record record1, Record record2);
             
-            static InputReader* getInstance(std::string inputFileName="");
+            static InputReader* getInstance(std::string inputFileName="",int numberOfFloors=0);
 
         private:
 
-            InputReader(std::string inputFileName);
+            InputReader(std::string inputFileName,int numberOfFloors);
+            
+            bool inputValidation();
+
+            bool checkFloorNumbers(); 
             
             void readRecordsFromFile();
 
             static InputReader* mInstance;
 
             std::string mInputFileName;
+            
+            int mNumberOfFloors;
 
             std::string mTemplateKeyString;
 

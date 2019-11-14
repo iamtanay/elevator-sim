@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include <vector>
+#include "utility.hpp"
 
 
 namespace Elevator {
@@ -21,12 +21,12 @@ namespace Elevator {
 
         public:
 
-            Record(std::string recordString);
+            Record(std::string recordString,std::vector<std::string> templateKeys);
 
         private:
 
-            std::vector<std::map<std::string,std::string>> recordMap;
-
+            std::map<std::string,std::string> recordMap;
+            
             friend class InputReader;
 
     };

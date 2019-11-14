@@ -1,3 +1,5 @@
 TimeOfCall,SourceFloor,DestinationFloor
 0,0,4
-10,1,5
+15,1,5
+12,8,9
+13,9,0
