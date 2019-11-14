@@ -4,6 +4,7 @@ namespace Elevator {
 
     Record::Record(std::string recordString,std::vector<std::string> templateKeys) {
 
+        spdlog::info("Welcome to spdlog!");
         std::vector<std::string> recordValues = split(recordString,',');
 
         for(int iter = 0; iter < templateKeys.size(); iter++) {

@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/base_sink.h"
 #include "utility.hpp"
 
 
