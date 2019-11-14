@@ -17,4 +17,5 @@ inline std::vector<std::string> split(const std::string& inputString, char delim
     }
     return outputVectorOfStrings;
 }
+
 #endif

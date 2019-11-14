@@ -17,6 +17,8 @@
 #Ignore all folder names which should not be committed
 CMakeFiles
 
+Logs/
+
 lib/
 
 obj/

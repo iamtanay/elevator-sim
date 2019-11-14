@@ -1,3 +1,6 @@
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/daily_file_sink.h"
+
 #include <Elevator/Elevator.hpp>
 #include <Elevator/TripManager.hpp>
 #include <Elevator/Floor.hpp>
@@ -10,6 +13,9 @@ using namespace Elevator;
 int main() {
 
     try {
+        auto logger = spdlog::daily_logger_mt("daily_logger", "Logs/Simulation.log",0,0);
+        spdlog::set_default_logger(logger);
+
         int numberOfFloors;
         std::cout<<"Enter number of floors in the building: ";
         std::cin>>numberOfFloors;
