@@ -50,6 +50,8 @@ namespace Elevator {
 
             std::vector<std::string> mTemplateKeys;
 
+            bool mValidInput = false;
+
     };
 }
 #endif

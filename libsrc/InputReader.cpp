@@ -23,15 +23,13 @@ namespace Elevator {
             std::string templateKeys;
             std::getline(inputfile, templateKeys);
             this->mTemplateKeyString = templateKeys;
-            std::cout << templateKeys << std::endl;
             this->mTemplateKeys = split(templateKeys,',');
 
             this->readRecordsFromFile();
-            if(!this->inputValidation()) {
-                std::cout<<"Input Validation Failed"<<std::endl;
-            }
+            this->inputValidation();
+            this->mValidInput = true;
         } else {
-            std::cerr<<"Input File Not Found"<<std::endl;
+            throw "Input File Not Found";
         }
     }
 
@@ -50,13 +48,14 @@ namespace Elevator {
             }
 
         } else {
-            std::cerr<<"Input File Not Found"<<std::endl;
+            throw "Input File Not Found";
         }
 
     }
 
     std::vector<Record> InputReader::getInputRecords() {
-        return this->mInputRecords;        
+        if(this->mValidInput)
+            return this->mInputRecords;
     }
 
     bool InputReader::compareCallTimes(Record record1, Record record2) {
@@ -71,9 +70,9 @@ namespace Elevator {
             int sourceFloor = stoi(this->mInputRecords[iter].recordMap.find("SourceFloor")->second);
             int destinationFloor = stoi(this->mInputRecords[iter].recordMap.find("DestinationFloor")->second);
 
-            if( sourceFloor      > this->mNumberOfFloors || 
-                destinationFloor > this->mNumberOfFloors ||
-                sourceFloor      < 0                     ||
+            if( sourceFloor      > this->mNumberOfFloors - 1 || 
+                destinationFloor > this->mNumberOfFloors - 1 ||
+                sourceFloor      < 0                         ||
                 destinationFloor < 0) {
 
                 return false;
@@ -88,7 +87,7 @@ namespace Elevator {
         //Checking if Floor Numbers are valid
         if(!checkFloorNumbers()) {
             std::cerr<<"Floor Number input is not correct"<<std::endl;
-            return false;
+            throw "Input Validation Failed";
         }
         return true;
     }

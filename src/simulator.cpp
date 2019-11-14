@@ -9,18 +9,24 @@ using namespace Elevator;
 
 int main() {
 
-    int numberOfFloors;
-    std::cout<<"Enter number of floors in the building: ";
-    std::cin>>numberOfFloors;
+    try {
+        int numberOfFloors;
+        std::cout<<"Enter number of floors in the building: ";
+        std::cin>>numberOfFloors;
 
-    std::vector<Floor> floors;
-    for(int i = 0; i < numberOfFloors; i++) {
+        std::vector<Floor> floors;
+        for(int i = 0; i < numberOfFloors; i++) {
 
-        Floor newFloor(i);
-        floors.push_back(newFloor);
+            Floor newFloor(i);
+            floors.push_back(newFloor);
+        }
+
+        InputReader* inputRead = InputReader::getInstance("input/sampleInput.csv",numberOfFloors);
+
+        std::vector<Record> records = inputRead->getInputRecords();
+    } catch(const char* err) {
+        std::cerr<<"Caught exception : " << err << std::endl;
     }
 
-    InputReader* inputRead = InputReader::getInstance("input/sampleInput.csv",numberOfFloors);
-    
     return 0;
 }

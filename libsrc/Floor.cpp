@@ -2,9 +2,7 @@
 
 namespace Elevator {
 
-    Floor::Floor(int floorNumber) {
-        
-        std::cout<<"Initializing Floor "<<floorNumber<<std::endl;
+    Floor::Floor(int floorNumber) {        
         this->mFloorNumber = floorNumber;
     }
 }
