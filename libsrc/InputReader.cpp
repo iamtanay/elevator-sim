@@ -23,7 +23,7 @@ namespace Elevator {
             std::string templateKeys;
             std::getline(inputfile, templateKeys);
             this->mTemplateKeyString = templateKeys;
-            spdlog::info("Template Keys : {}", this->mTemplateKeyString);
+            spdlog::info("{} ______ Template Keys : {}", __PRETTY_FUNCTION__,this->mTemplateKeyString);
             this->mTemplateKeys = split(templateKeys,',');
 
             this->readRecordsFromFile();
@@ -79,6 +79,7 @@ namespace Elevator {
                 sourceFloor      < 0                         ||
                 destinationFloor < 0) {
 
+                spdlog::error("Invalid Floor combination: {},{}",sourceFloor,destinationFloor);
                 return false;
             }
         }

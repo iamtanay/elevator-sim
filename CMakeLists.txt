@@ -16,6 +16,7 @@ else()
     endif()
 endif()
 
+#UNCOMMENT FOR DEBUG MODE
 add_definitions(-g)
 
 #GIT SUBMODULE INIT
@@ -31,6 +32,7 @@ if(GIT_FOUND AND EXISTS ".git")
 endif()
 
 #BUILDING LIBRARY
+
 file(GLOB ELEVATOR "${PROJECT_SOURCE_DIR}/libsrc/*.cpp")
 
 file(GLOB ALL_HEADER_FILES "${PROJECT_SOURCE_DIR}/libsrc/*.hpp")
